@@ -38,7 +38,7 @@ function App() {
   }, []);
 
   // console.log({ data: data?.data, error, isLoading });
-  console.log({ data: tiles });
+  console.log({ data: tiles.data });
 
   function onDrag() {
     console.log({ onDrag: e });
@@ -52,10 +52,9 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <div className="border-2 border-dashed border-rose-700 mt-4 flex">
         {/* {!!data?.data?.length && */}
-        {!!tiles.length &&
-          data.data.map((tile) => (
-            <Tile key={tile.id} onDrag={onDrag} onDroP={onDrop} data={tile} />
-          ))}
+        {tiles?.data?.map((tile) => (
+          <Tile key={tile.id} onDrag={onDrag} onDroP={onDrop} data={tile} />
+        ))}
       </div>
     </QueryClientProvider>
   );
